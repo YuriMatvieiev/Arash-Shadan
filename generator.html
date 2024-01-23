@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeMaker</title>
+    <style>
+      /* CSS Styles */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+      }
+
+      .codemaker-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      label,
+      input,
+      select,
+      button {
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        padding: 0px;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      input[type="text"],
+      select {
+        padding: 8px;
+      }
+      label {
+        margin-bottom: 8px;
+      }
+
+      .radio-input {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .radio-input input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+      }
+      .form-item {
+        margin: 8px 0;
+      }
+      .form-item input[type="text"] {
+        width: 100%;
+      }
+
+      #answerOptions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      #answerOptions input[type="checkbox"],
+      #answerOptions input[type="radio"] {
+        width: 20px;
+      }
+      #answerOptions input[type="text"] {
+        width: calc(100% - 28px);
+      }
+      #addAnswers,
+      #generateCodeButton {
+        margin: 8px 0;
+        padding: 8px;
+        cursor: pointer;
+      }
+      #answerOptions div {
+        width: 100%;
+      }
+      #answerOptions div div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .addOption {
+        margin: 16px 0 8px;
+        padding: 8px;
+        cursor: pointer;
+      }
+      .answerTypeSelect {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+      }
+      .answerTypeSelect label {
+        margin: 0;
+      }
+      .answerTypeSelect input {
+        flex: 0 0 20px;
+        height: 20px;
+        width: 20px;
+      }
+      #numberFieldsDiv input {
+        padding: 8px;
+        margin-bottom: 8px;
+      }
+      #numberFieldsDiv input {
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="codemaker-container">
+      <form id="questionForm">
+        <div class="form-item">
+          <label for="question">Enter your question:</label>
+          <input
+            type="text"
+            placeholder="Enter your question:"
+            id="question"
+            name="question"
+          />
+        </div>
+        <div class="form-item">
+          <label for="question">Enter syllabus item number:</label>
+          <input
+            type="text"
+            placeholder="Enter syllabus item number:"
+            id="syllabus"
+            name="syllabus"
+          />
+        </div>
+        <div class="form-item">
+          <label for="question">Enter syllabus link:</label>
+          <input
+            type="text"
+            placeholder="Enter syllabus link:"
+            id="syllabus-link"
+            name="syllabus-link"
+          />
+        </div>
+
+        <div class="form-item">
+          <label for="question"
+            >If you want to show an image, insert a link</label
+          >
+          <div class="radio-input">
+            <input type="checkbox" name="image-path" id="image" />
+            <input
+              placeholder="https://..."
+              type="text"
+              id="image-path"
+              name="image-path"
+            />
+          </div>
+        </div>
+        <div class="form-item">
+          <label for="answerFormat">Select answer format:</label>
+          <select
+            id="answerFormat"
+            name="answerFormat"
+            onchange="getComboA(this)"
+          >
+            <option value="single">Single Correct Answer</option>
+            <option value="multi">Multi Correct Answer</option>
+            <option value="field">Input Field</option>
+            <option value="select">Select</option>
+          </select>
+        </div>
+        <div id="answerOptions"></div>
+
+        <button type="button" id="addAnswers" onclick="addAnswer()">
+          Add Answer
+        </button>
+
+        <button type="button" id="generateCodeButton" onclick="generateCode()">
+          Generate Code
+        </button>
+      </form>
+      <div
+        id="generatedCode"
+        style="white-space: pre-wrap; margin-top: 20px"
+      ></div>
+    </div>
+
+    <script>
+      var countSelect = 0;
+
+      var addButton = document.getElementById("addAnswers");
+      var answerFormat = document.getElementById("answerFormat").value;
+      function toggleNumberFieldsVisibility() {
+        var numberFieldsDiv = document.getElementById("numberFieldsDiv");
+        var numberOption = document.querySelector(
+          'input[name="input-option"][value="number"]'
+        );
+        var isNumberSelected = numberOption.checked;
+
+        var answerFormat = document.getElementById("answerFormat").value;
+
+        // Toggle visibility based on the selected radio button and answer format
+        if (answerFormat === "field" && isNumberSelected) {
+          numberFieldsDiv.style.display = "block";
+        } else {
+          numberFieldsDiv.style.display = "none";
+        }
+      }
+
+      function addAnswer() {
+        countSelect++;
+        var answerOptionsDiv = document.getElementById("answerOptions");
+        var answerInput = document.createElement("input");
+        answerInput.type = "text";
+        answerInput.placeholder = "Enter answer option";
+
+        var answerTypeSelect = document.createElement("div");
+        answerTypeSelect.className = "answerTypeSelect";
+        var textOption = document.createElement("input");
+        textOption.type = "radio";
+        textOption.value = "text";
+        textOption.name = "input-option";
+        textOption.className = "radio-text";
+        textOption.id = "radio-text";
+        textOption.checked = true;
+        var textLabel = document.createElement("label");
+        textLabel.innerText = "Text";
+        textLabel.htmlFor = "radio-text";
+        var numberOption = document.createElement("input");
+        numberOption.type = "radio";
+        numberOption.value = "number";
+        numberOption.name = "input-option";
+        numberOption.id = "radio-number";
+        numberOption.className = "radio-number";
+        var numberLabel = document.createElement("label");
+        numberLabel.innerText = "Number";
+        numberLabel.htmlFor = "radio-number";
+
+        // Use appendChild instead of add
+        answerTypeSelect.appendChild(textOption);
+        answerTypeSelect.appendChild(textLabel);
+        answerTypeSelect.appendChild(numberOption);
+        answerTypeSelect.appendChild(numberLabel);
+
+        var numberFieldsDiv = document.createElement("div");
+        numberFieldsDiv.id = "numberFieldsDiv"; // Assuming you have a container div for number fields
+        var minNumberInput = document.createElement("input");
+        minNumberInput.type = "number";
+        minNumberInput.id = "min-number-js";
+        minNumberInput.placeholder = "Min Number";
+        var maxNumberInput = document.createElement("input");
+        maxNumberInput.type = "number";
+        maxNumberInput.placeholder = "Max Number";
+        maxNumberInput.id = "max-number-js";
+
+        numberFieldsDiv.appendChild(minNumberInput);
+        numberFieldsDiv.appendChild(maxNumberInput);
+
+        var correctInput = document.createElement("input");
+        correctInput.value = answerInput.value;
+        // Set up an event listener to call the toggleNumberFieldsVisibility function when the radio buttons change
+        answerTypeSelect.addEventListener(
+          "change",
+          toggleNumberFieldsVisibility
+        );
+
+        if (document.getElementById("answerFormat").value === "single") {
+          answerInput.className = "answer";
+          correctInput.type = "radio";
+          correctInput.name = "correctAnswer";
+          answerOptionsDiv.appendChild(correctInput);
+          answerOptionsDiv.appendChild(answerInput);
+        } else if (document.getElementById("answerFormat").value === "multi") {
+          answerInput.className = "answer";
+          correctInput.type = "checkbox";
+          correctInput.name = "correctAnswer";
+          answerOptionsDiv.appendChild(correctInput);
+          answerOptionsDiv.appendChild(answerInput);
+        } else if (document.getElementById("answerFormat").value === "field") {
+          answerInput.className = "answer";
+          correctInput.type = "text";
+          correctInput.name = "correctAnswer";
+          correctInput.placeholder = "Correct answer for the input field";
+          answerOptionsDiv.appendChild(answerTypeSelect);
+          answerOptionsDiv.appendChild(numberFieldsDiv); // Add the number input fields
+          answerOptionsDiv.appendChild(correctInput);
+          toggleNumberFieldsVisibility();
+        } else if (document.getElementById("answerFormat").value === "select") {
+          answerInput.className = "answer-" + countSelect;
+          var title = document.createElement("h3");
+          var selectDiv = document.createElement("div");
+          selectDiv.id = "select-" + countSelect;
+          answerOptionsDiv.appendChild(selectDiv);
+          correctInput.type = "radio";
+          correctInput.name = "correctAnswer-" + countSelect;
+          title.textContent = "Select " + countSelect;
+          selectDiv.appendChild(title);
+
+          var answerSelect = document.createElement("div");
+          answerSelect.id = "answer-select-" + countSelect;
+          selectDiv.appendChild(answerSelect);
+          answerSelect.appendChild(correctInput);
+
+          answerSelect.appendChild(answerInput);
+
+          var optiontInput = document.createElement("input");
+          optiontInput.type = "button";
+          optiontInput.name = "addOption";
+          optiontInput.className = "addOption";
+          optiontInput.value = "Add Option"; // Change the button text here
+          optiontInput.id = "option-" + countSelect;
+          optiontInput.onclick = function (a) {
+            var id = a.srcElement.id.split("-")[1];
+            var selectOption = document.getElementById("answer-select-" + id);
+            var answerInput1 = document.createElement("input");
+            answerInput1.type = "text";
+            answerInput1.className = "answer-" + id;
+            answerInput1.placeholder = "Enter answer option";
+
+            var correctInput1 = document.createElement("input");
+            correctInput1.type = "radio";
+            correctInput1.name = "correctAnswer-" + id;
+            selectOption.appendChild(correctInput1);
+
+            selectOption.appendChild(answerInput1);
+          };
+          selectDiv.appendChild(optiontInput);
+        }
+        // Clear the input field after adding an answer
+        answerInput.value = "";
+      }
+
+      function getComboA(selectObject) {
+        var value = selectObject.value;
+        // console.log(selectObject);
+        if (document.getElementById("answerFormat").value === "select") {
+          addButton.innerText = "Add Select";
+        } else {
+          addButton.innerText = "Add Answer";
+        }
+      }
+
+      function generateCode() {
+        // Code to generate the output based on user inputs
+        var question = document.getElementById("question").value;
+        var syllabus = document.getElementById("syllabus").value;
+        var syllabusLink = document.getElementById("syllabus-link").value;
+        var answerFormat = document.getElementById("answerFormat").value;
+        var showImage = document.getElementById("image").checked;
+        var imageLink = document.getElementById("image-path").value;
+        var answerOptions = document.getElementsByClassName("answer");
+
+        var correctAnswers = [];
+
+        // Find the selected correct answers
+        var correctInputs = document.getElementsByName("correctAnswer");
+        for (var i = 0; i < correctInputs.length; i++) {
+          if (answerFormat === "single" || answerFormat === "multi") {
+            if (correctInputs[i].checked) {
+              correctAnswers.push(answerOptions[i].value);
+            }
+          } else {
+            if (correctInputs[i].value !== "") {
+              correctAnswers.push(correctInputs[i].value);
+            }
+          }
+        }
+
+        for (var i = 0; i < countSelect; i++) {
+          if (answerFormat === "select") {
+            var correctInputs1 = document.getElementsByName(
+              "correctAnswer-" + (i + 1)
+            );
+            var answerOptions1 = document.getElementsByClassName(
+              "answer-" + (i + 1)
+            );
+            for (var j = 0; j < correctInputs1.length; j++) {
+              if (correctInputs1[j].checked) {
+                correctAnswers.push(answerOptions1[j].value);
+              }
+            }
+          }
+        }
+
+        // Code generation logic based on selected answer format
+        var generatedCode =
+          '<div data-syllabus="' +
+          syllabus +
+          '" data-syllabus-link="' +
+          syllabusLink +
+          '" class="question__box"';
+        if (
+          answerFormat === "field" &&
+          document.getElementById("radio-number").checked
+        ) {
+          var minNumberInput = document.getElementById("min-number-js");
+          var maxNumberInput = document.getElementById("max-number-js");
+
+          var minNumber = minNumberInput ? minNumberInput.value : "";
+          var maxNumber = maxNumberInput ? maxNumberInput.value : "";
+
+          generatedCode += ' data-min-number="' + minNumber + '"';
+          generatedCode += ' data-max-number="' + maxNumber + '"';
+        }
+        // Assign correct answers to data attributes
+        if (answerFormat === "single" || answerFormat === "field") {
+          generatedCode += ' data-correct-1="' + correctAnswers[0] + '"';
+        } else if (answerFormat === "multi") {
+          for (var i = 0; i < correctAnswers.length; i++) {
+            generatedCode +=
+              " data-correct-" + (i + 1) + '="' + correctAnswers[i] + '"';
+          }
+        } else if (answerFormat === "select") {
+          for (var i = 0; i < correctAnswers.length; i++) {
+            generatedCode +=
+              " data-correct-" + (i + 1) + '="' + correctAnswers[i] + '"';
+          }
+        }
+
+        generatedCode += ">\n";
+        generatedCode += '  <div class="question__progress"></div>\n';
+        generatedCode +=
+          '  <h2 class="question__title">\n    ' + question + "\n  </h2>\n";
+
+        if (answerFormat === "single" || answerFormat === "multi") {
+          generatedCode += '  <div class="question__questions">\n';
+
+          if (showImage && imageLink.trim() !== "") {
+            generatedCode +=
+              '  <div class="question__image-wrap">\n' +
+              '    <img class="question__image" src="' +
+              imageLink +
+              '" alt="" />\n' +
+              '    <button class="close-image-js exam__popup-close"></button>\n' +
+              "  </div>\n";
+          }
+
+          if (answerFormat === "single" || answerFormat === "multi") {
+            for (var i = 0; i < answerOptions.length; i++) {
+              generatedCode += "    <label>\n";
+              generatedCode +=
+                '      <input class="question__' +
+                (answerFormat === "single" ? "radio" : "checkbox") +
+                '" type="' +
+                (answerFormat === "single" ? "radio" : "checkbox") +
+                '" />\n';
+              generatedCode +=
+                "      <span>" + answerOptions[i].value + "</span>\n";
+              generatedCode += "    </label>\n";
+            }
+          }
+          generatedCode += "  </div>\n</div>";
+        } else if (answerFormat === "field") {
+          if (showImage && imageLink.trim() !== "") {
+            generatedCode +=
+              '  <div class="question__image-wrap">\n' +
+              '    <img class="question__image" src="' +
+              imageLink +
+              '" alt="" />\n' +
+              '    <button class="close-image-js exam__popup-close"></button>\n' +
+              "  </div>\n";
+          }
+          generatedCode +=
+            '  <ul class="question__select-list">\n   <li>\n    1.\n    <input class="question__textbox" type="text" />\n   </li>\n  </ul>\n';
+          generatedCode += "  </div>";
+        } else if (answerFormat === "select") {
+          if (showImage && imageLink.trim() !== "") {
+            generatedCode +=
+              '  <div class="question__image-wrap">\n' +
+              '    <img class="question__image" src="' +
+              imageLink +
+              '" alt="" />\n' +
+              '    <button class="close-image-js exam__popup-close"></button>\n' +
+              "  </div>\n";
+          }
+          generatedCode += '  <ul class="question__select-list">\n';
+          for (var i = 0; i < countSelect; i++) {
+            generatedCode += "   <li>\n";
+            generatedCode += `    ${i + 1}.\n`;
+            generatedCode += '     <select class="question__select" >\n';
+            generatedCode +=
+              '      <option value="" selected disabled>Select an option</option>';
+            var answerOptions1 = document.getElementsByClassName(
+              "answer-" + (i + 1)
+            );
+            for (var j = 0; j < answerOptions1.length; j++) {
+              generatedCode += `\n      <option value="${answerOptions1[j].value}">${answerOptions1[j].value}</option>`;
+            }
+            generatedCode += "\n     </select>\n   </li>\n";
+          }
+          generatedCode += "  </ul>\n</div>";
+        }
+
+        // Display the generated code
+        document.getElementById("generatedCode").innerText = generatedCode;
+      }
+    </script>
+  </body>
+</html>

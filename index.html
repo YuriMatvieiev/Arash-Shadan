@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
   </head>
   <body>
     <div class="overlay" id="overlay"></div>
     <div
-      data-time="40"
+      data-time="10"
       data-pass-rate="70"
-      data-exam-title="Examination"
-      data-exam-licence="License"
-      data-specialisation="Specialisation"
+      data-exam-title="FRTO Flight Radiotelephony"
+      data-exam-licence="PPL"
+      data-specialisation="Flight Crew"
       class="exam"
     >
       <div class="exam__container">
@@ -26,123 +26,22 @@
               <img src="https://svgshare.com/i/11mH.svg" alt="" />
               <div class="exam__header-text">Time Remaining</div>
             </div>
-            <div class="exam__header-mins" id="countdown">02 : 00 Mins</div>
+            <div class="exam__header-mins" id="countdown">10 : 00 Mins</div>
           </div>
         </div>
         <div class="exam__content">
           <div class="question__block">
+            <!-- question start -->
             <div
-              data-syllabus="9.24.1 (a)"
-              data-syllabus-link="#link1"
-              data-correct="Call sign for Nelson Aerodrome +"
+              data-syllabus="12.1"
+              data-syllabus-link=""
               class="question__box"
+              data-min-number="49"
+              data-max-number="50"
+              data-correct-1="49.64"
             >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <h2 class="question__title">
-                What is the two terms used to lift the restriction on radio
-                communications that was established after a distress and urgent
-                signals?
-              </h2>
-              <div class="question__questions">
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>Call sign for Motueka Aerodrome</span>
-                </label>
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>Call sign for Motueka Air Traffic Control</span>
-                </label>
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>Call sign for Nelson Aerodrome +</span>
-                </label>
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>Call sign for the Motueka Area Traffic</span>
-                </label>
-              </div>
-            </div>
-            <div
-              data-syllabus="9.24.2 (a)"
-              data-syllabus-link="#link2"
-              data-correct="PAN-PAN traffic ended. +"
-              data-correct-2="MAYDAY traffic ended +"
-              class="question__box"
-            >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <h2 class="question__title">
-                What is the two terms used to lift the restriction on radio
-                communications that was established after a distress and urgent
-                signals?
-              </h2>
-              <div class="question__questions">
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>PAN-PAN traffic ended. +</span>
-                </label>
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>Distress traffic ended.</span>
-                </label>
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>MAYDAY traffic ended +</span>
-                </label>
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>Distress situation ended</span>
-                </label>
-              </div>
-            </div>
-            <div
-              data-syllabus="9.24.3 (a)"
-              data-syllabus-link="#link3"
-              data-correct="Not readable +"
-              data-correct-2="Say Again +"
-              class="question__box"
-            >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <div class="question__title">
-                If you receive a response stating "last station, readability
-                one" after a radio check, this indicates that your transmission
-                was __1__, and a pilot will say __2__ to clarify an unclear
-                transmission.
-              </div>
-              <ul class="question__select-list">
-                <li>
-                  1.
-                  <select class="question__select">
-                    <option value="" selected disabled>Select an option</option>
-                    <option value="Perfectly readable">
-                      Perfectly readable
-                    </option>
-                    <option value="Not readable +">Not readable +</option>
-                    <option value="Yes and No">Yes and No</option>
-                    <option value="Readable">Readable</option>
-                  </select>
-                </li>
-                <li>
-                  2.
-                  <select class="question__select">
-                    <option value="" selected disabled>Select an option</option>
-                    <option value="Correction">Correction</option>
-                    <option value="Say Again +">Say Again +</option>
-                  </select>
-                </li>
-              </ul>
-            </div>
-            <div
-              data-syllabus="9.24.4 (a) input"
-              data-syllabus-link="#link4"
-              data-correct="22"
-              class="question__box"
-            >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <div class="question__title">
-                The angular difference between true north and magnetic north is
-                called __1__(22) km/hr
-              </div>
-
+              <div class="question__progress"></div>
+              <h2 class="question__title">What is 7.3 x 6.8?</h2>
               <ul class="question__select-list">
                 <li>
                   1.
@@ -151,109 +50,49 @@
               </ul>
             </div>
             <div
-              data-syllabus="9.24.1 (a)"
-              data-syllabus-link="#link1"
-              data-correct="The Magnetic Compass +"
+              data-syllabus="97.4.3 (a)"
+              data-syllabus-link="https://wayman.edu/files/Cessna-172N-POH.pdf"
               class="question__box"
+              data-correct-1="2450 lbs"
             >
-              <div class="question__progress">Quesion 3 of 10</div>
+              <div class="question__progress"></div>
               <h2 class="question__title">
-                What is the primary reference for direction in most light
-                aircraft?
+                What is the maximum takeoff weight of a standard Cessna 172?
               </h2>
               <div class="question__questions">
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>The Directional Gyro</span>
+                  <span>2200 lbs</span>
                 </label>
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>The Attitude Indicator</span>
+                  <span>2450 lbs</span>
                 </label>
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>The Magnetic Compass +</span>
+                  <span>2550 lbs</span>
                 </label>
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>The Altimeter</span>
+                  <span>2700 lbs</span>
                 </label>
               </div>
             </div>
+            <!-- question end-->
+            <!-- question start -->
             <div
-              data-syllabus="9.24.1 (a)"
-              data-syllabus-link="#link1"
-              data-correct="In straight-and-level flight under smooth flying conditions +"
+              data-syllabus="12.1"
+              data-syllabus-link="https://wayman.edu/files/Cessna-172N-POH.pdf"
               class="question__box"
+              data-min-number="122"
+              data-max-number="122"
+              data-correct-1="122"
             >
-              <div class="question__progress">Quesion 3 of 10</div>
+              <div class="question__progress"></div>
               <h2 class="question__title">
-                When will the magnetic compass indicate direction accurately?
+                The Cessna 172’s maximum cruising speed at sea level is ____
+                knots?
               </h2>
-              <div class="question__questions">
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>During rapid ascent and descent</span>
-                </label>
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>When the aircraft is accelerating or turning</span>
-                </label>
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span>Immediately after a sharp turn</span>
-                </label>
-                <label>
-                  <input class="question__radio" type="radio" />
-                  <span
-                    >In straight-and-level flight under smooth flying conditions
-                    +</span
-                  >
-                </label>
-              </div>
-            </div>
-            <div
-              data-syllabus="9.24.2 (a)"
-              data-syllabus-link="#link2"
-              data-correct="Near Hudson Bay in Canada +"
-              data-correct-2="In the Sahara Desert +"
-              class="question__box"
-            >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <h2 class="question__title">
-                Where is the north magnetic pole currently located?
-              </h2>
-              <div class="question__questions">
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>In the Bermuda Triangle</span>
-                </label>
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>Near the geographic North Pole</span>
-                </label>
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>Near Hudson Bay in Canada +</span>
-                </label>
-                <label>
-                  <input class="question__checkbox" type="checkbox" />
-                  <span>In the Sahara Desert +</span>
-                </label>
-              </div>
-            </div>
-            <div
-              data-syllabus="9.24.4 (a) input"
-              data-syllabus-link="#link4"
-              data-correct="true"
-              class="question__box"
-            >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <div class="question__title">
-                The angular difference between true north and magnetic north is
-                called __1__(true) km/hr
-              </div>
-
               <ul class="question__select-list">
                 <li>
                   1.
@@ -261,73 +100,181 @@
                 </li>
               </ul>
             </div>
+            <!-- question end-->
+            <!-- question start -->
             <div
-              data-syllabus="9.24.3 (a)"
-              data-syllabus-link="#link3"
-              data-correct="Yes +"
-              data-correct-2="Correction +"
+              data-syllabus="20.12.3"
+              data-syllabus-link="https://wayman.edu/files/Cessna-172N-POH.pdf"
               class="question__box"
+              data-correct-1="56 gallons"
             >
-              <div class="question__progress">Quesion 3 of 10</div>
-              <div class="question__title">
-                If you receive a response stating "last station, readability
-                one" after a radio check, this indicates that your transmission
-                was __1__, and a pilot will say __2__ to clarify an unclear
-                transmission.
-              </div>
+              <div class="question__progress"></div>
+              <h2 class="question__title">
+                Select the correct fuel capacity (standard tanks) of the Cessna
+                172
+              </h2>
               <ul class="question__select-list">
                 <li>
                   1.
                   <select class="question__select">
                     <option value="" selected disabled>Select an option</option>
-                    <option value="Perfectly readable">
-                      Perfectly readable
-                    </option>
-                    <option value="Not readable">Not readable</option>
-                    <option value="Yes +">Yes +</option>
-                    <option value="No">No</option>
-                  </select>
-                </li>
-                <li>
-                  2.
-                  <select class="question__select">
-                    <option value="" selected disabled>Select an option</option>
-                    <option value="Correction +">Correction +</option>
-                    <option value="Say Again">Say Again</option>
+                    <option value="38 gallons">38 gallons</option>
+                    <option value="42 gallons">42 gallons</option>
+                    <option value="56 gallons">56 gallons</option>
+                    <option value="60 gallons">60 gallons</option>
                   </select>
                 </li>
               </ul>
             </div>
+
+            <!-- question end-->
+            <!-- question start -->
             <div
-              data-syllabus="9.24.1 (a)"
-              data-syllabus-link="#link1"
-              data-correct="ONUS +"
+              data-syllabus="14.23.4"
+              data-syllabus-link=""
               class="question__box"
+              data-correct-1="Lycoming"
             >
-              <div class="question__progress">Quesion 3 of 10</div>
+              <div class="question__progress"></div>
               <h2 class="question__title">
-                Which mnemonic helps pilots correct for turning error?
+                The Cessna 172 has a _____ engine?
+              </h2>
+              <ul class="question__select-list">
+                <li>
+                  1.
+                  <input class="question__textbox" type="text" />
+                </li>
+              </ul>
+            </div>
+
+            <!-- question end-->
+            <!-- question start -->
+
+            <div
+              data-syllabus="98.1.4"
+              data-syllabus-link="https://www.nzaviator.co.nz/"
+              class="question__box"
+              data-correct-1="Garmin G1000 NXi avionics suite"
+              data-correct-2="Dual-axis autopilot"
+              data-correct-3="Synthetic vision technology"
+            >
+              <div class="question__progress"></div>
+              <h2 class="question__title">
+                Which of the following are standard features of the Cessna 172’s
+                avionics?
+              </h2>
+              <div class="question__questions">
+                <div class="question__image-wrap">
+                  <img
+                    class="question__image"
+                    src="https://www.simfly.com.au/wp-content/uploads/2018/01/C172-Cockpit-King-Avionics-V02R03-1-page-example-e1551183030474.jpg"
+                    alt=""
+                  />
+                  <button class="close-image-js exam__popup-close"></button>
+                </div>
+                <label>
+                  <input class="question__checkbox" type="checkbox" />
+                  <span>Garmin G1000 NXi avionics suite</span>
+                </label>
+                <label>
+                  <input class="question__checkbox" type="checkbox" />
+                  <span>Dual-axis autopilot</span>
+                </label>
+                <label>
+                  <input class="question__checkbox" type="checkbox" />
+                  <span>Synthetic vision technology</span>
+                </label>
+                <label>
+                  <input class="question__checkbox" type="checkbox" />
+                  <span>Weather radar</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- question end-->
+            <!-- question start -->
+            <div
+              data-syllabus="98.1.1"
+              data-syllabus-link="https://www.nzaviator.co.nz/editorial/survival-tips-and-post-crash-actions-for-pilots"
+              class="question__box"
+              data-correct-1="MCT is 0701 NZDT and ECT is 1723 NZDT"
+            >
+              <div class="question__progress"></div>
+              <h2 class="question__title">
+                When is MCT and ECT in Napier (Zone 2) on the 12th of lune in
+                local time?
+              </h2>
+              <div class="question__questions">
+                <div class="question__image-wrap">
+                  <img
+                    class="question__image"
+                    src="https://images.squarespace-cdn.com/content/6267cc01611a1c7ec276bc0c/4a3bb915-2ef8-4a59-9ad4-0bff168a8872/10+image.png?content-type=image%2Fpng"
+                    alt=""
+                  />
+                  <button class="close-image-js exam__popup-close"></button>
+                </div>
+                <label>
+                  <input class="question__radio" type="radio" />
+                  <span>MCT is 0523 NZST and ECT is 1901 NZST</span>
+                </label>
+                <label>
+                  <input class="question__radio" type="radio" />
+                  <span>MCT is 0701 NZDT and ECT is 1723 NZDT</span>
+                </label>
+                <label>
+                  <input class="question__radio" type="radio" />
+                  <span>MCT is 0701 UTC and ECT is 1723 UTC.</span>
+                </label>
+                <label>
+                  <input class="question__radio" type="radio" />
+                  <span>MCT is 0701 NZST and ECT is 1723 NZST.</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- question end-->
+            <!-- question start -->
+
+            <!-- question end-->
+            <!-- question start -->
+            <div
+              data-syllabus=""
+              data-syllabus-link=""
+              class="question__box"
+              data-correct-1="5-10 km/hr"
+            >
+              <div class="question__progress"></div>
+              <h2 class="question__title">
+                What is the recommended taxi speed for a light aeroplane?
               </h2>
               <div class="question__questions">
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>FAST</span>
+                  <span>15-20 km/hr</span>
                 </label>
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>ONUS +</span>
+                  <span>5-10 km/hr</span>
                 </label>
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>TURN</span>
+                  <span>20-25 km/hr</span>
                 </label>
                 <label>
                   <input class="question__radio" type="radio" />
-                  <span>LEAN</span>
+                  <span>10-15 km/hr</span>
                 </label>
               </div>
             </div>
-            <!--  -->
+
+            <!-- question end-->
+            <!-- question start -->
+
+            <!-- question end-->
+            <!-- question start -->
+
+            <!-- question end-->
+
             <div class="question__buttons">
               <button class="white-button question__prev">
                 <img src="https://svgshare.com/i/11m7.svg" alt="" />Prev
@@ -342,14 +289,14 @@
             <div class="stats__top">
               <div class="stats__title">Questions</div>
               <div class="stats__slider">
-                <div id="stats__slider-prev" class="stats__slider-nav">
+                <button id="stats__slider-prev" class="stats__slider-nav">
                   &#60;
-                </div>
+                </button>
                 <div class="stats__slider-numbers"></div>
 
-                <div id="stats__slider-next" class="stats__slider-nav">
+                <button id="stats__slider-next" class="stats__slider-nav">
                   &#62;
-                </div>
+                </button>
               </div>
               <div class="stats__text">Key</div>
               <div class="stats__keys">
@@ -365,7 +312,12 @@
         </div>
       </div>
       <div style="display: none" class="result__container">
-        <h2 class="exam__header-title">Result <span>Details</span></h2>
+        <div class="exam__header">
+          <h2 class="exam__header-title">Result <span>Details</span></h2>
+          <button class="sky-button result__pdf" id="saveAsPdfButton">
+            Save as PDF
+          </button>
+        </div>
         <div class="result__info">
           <div class="result__left">
             <div class="result__left-item">
@@ -424,6 +376,1692 @@
         </div>
       </div>
     </div>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+      }
+
+      *,
+      *:before,
+      *:after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        min-width: 320px;
+      }
+
+      body {
+        color: #2f2f4d;
+        font-size: 16px;
+        line-height: 120%;
+        -ms-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      input,
+      button,
+      textarea {
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      button {
+        cursor: pointer;
+        color: inherit;
+        background-color: transparent;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      img {
+        vertical-align: top;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: inherit;
+        font-size: inherit;
+      }
+
+      .sky-button {
+        padding: 13px 24px;
+        border-radius: 100px;
+        border: 1px solid #2ed1df;
+        background: #2ed1df;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 16px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-weight: 700;
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        color: #fff;
+      }
+      @media (any-hover: hover) {
+        .sky-button:hover {
+          background: #2ed1df;
+        }
+      }
+
+      .white-button {
+        padding: 13px 24px;
+        border-radius: 100px;
+        border: 1px solid #e0e0e0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 16px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        font-weight: 700;
+        line-height: 187%;
+        letter-spacing: -0.25px;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(47, 47, 77, 0.5);
+        display: none;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        z-index: 999;
+      }
+
+      .exam__container {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .exam__header {
+        margin-bottom: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 20px;
+      }
+      @media (max-width: 767.98px) {
+        .exam__header {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          margin-bottom: 30px;
+        }
+      }
+      .exam__header-title {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: -0.88px;
+      }
+      .exam__header-title span {
+        color: #2ed1df;
+      }
+      @media (max-width: 767.98px) {
+        .exam__header-title {
+          font-size: 22px;
+          letter-spacing: -0.4px;
+        }
+      }
+      .exam__header-time {
+        border-radius: 100px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 16px 30px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 406px;
+        gap: 20px;
+      }
+      @media (max-width: 767.98px) {
+        .exam__header-time {
+          width: 100%;
+        }
+      }
+      @media (max-width: 479.98px) {
+        .exam__header-time {
+          padding: 16px 24px;
+        }
+      }
+      .exam__header-time img {
+        width: 24px;
+        height: 24px;
+      }
+      .exam__header-left {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 16px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      .exam__header-text {
+        letter-spacing: -0.25px;
+        line-height: 180%;
+      }
+      .exam__header-mins {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 133%;
+        letter-spacing: -0.25px;
+      }
+      .exam__header-mins.warning {
+        color: #e84c94;
+      }
+      .exam__content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 30px;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+      }
+      @media (max-width: 991.98px) {
+        .exam__content {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .exam__content {
+          gap: 20px;
+        }
+      }
+      .exam__popup {
+        position: fixed;
+        top: 200px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        width: 624px;
+        display: none;
+        z-index: 1000;
+        margin-bottom: 0;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      @media (max-width: 767.98px) {
+        .exam__popup {
+          width: 90%;
+        }
+      }
+      .exam__popup-header {
+        padding: 30px;
+        border-bottom: 1px solid rgba(47, 47, 77, 0.15);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+      @media (max-width: 479.98px) {
+        .exam__popup-header {
+          padding: 20px;
+        }
+      }
+      .exam__popup-title {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 136%;
+        letter-spacing: -0.4px;
+      }
+      .exam__popup-close {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid #e0e0e0;
+        position: relative;
+      }
+      .exam__popup-close::after {
+        content: "";
+        width: 10px;
+        height: 2px;
+        background: #2f2f4d;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .exam__popup-close::before {
+        content: "";
+        width: 10px;
+        height: 2px;
+        background: #2f2f4d;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .exam__popup-body {
+        padding: 30px;
+      }
+      @media (max-width: 479.98px) {
+        .exam__popup-body {
+          padding: 20px;
+        }
+      }
+      .exam__popup-text {
+        letter-spacing: -0.25px;
+        line-height: 187%;
+        margin-bottom: 30px;
+      }
+      .exam__popup-buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .question__block {
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        padding: 30px;
+        width: 100%;
+        min-height: 500px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+      .question__box {
+        display: none;
+      }
+      .question__box.active {
+        display: block;
+      }
+      .question__progress {
+        padding: 12px 17px;
+        border-radius: 100px;
+        background: rgba(46, 209, 223, 0.05);
+        color: #2ed1df;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 146%;
+        letter-spacing: -0.12px;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      .question__title {
+        letter-spacing: -0.25px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 133%;
+        margin-bottom: 30px;
+      }
+      .question__questions label {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 15px;
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        cursor: pointer;
+      }
+      .question__questions label .question__radio {
+        width: 20px;
+        height: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        padding: 3px;
+        background-clip: content-box;
+        border: 2px solid #e0e0e0;
+        background-color: transparent;
+        border-radius: 50%;
+        margin-top: 6px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20px;
+        flex: 0 0 20px;
+      }
+      .question__questions label .question__radio:checked {
+        background-color: #2ed1df;
+        border: 2px solid #2ed1df;
+      }
+      .question__questions label .question__checkbox {
+        width: 20px;
+        height: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        padding: 3px;
+        background-clip: content-box;
+        border: 2px solid #e0e0e0;
+        background-color: transparent;
+        margin-top: 6px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20px;
+        flex: 0 0 20px;
+      }
+      .question__questions label .question__checkbox:checked {
+        background-color: #2ed1df;
+        border: 2px solid #2ed1df;
+      }
+      .question__questions label:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      .question__text {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 20px;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .question__text:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      @media (max-width: 767.98px) {
+        .question__text {
+          gap: 10px;
+        }
+      }
+      .question__select {
+        padding: 13px 20px;
+        outline: none !important;
+        border-radius: 10px;
+        border: 1px solid rgba(223, 223, 223, 0.6);
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 200px;
+        color: #2f2f4d;
+        background: transparent
+          url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
+          no-repeat 95% center;
+        cursor: pointer;
+      }
+      @media (max-width: 479.98px) {
+        .question__select {
+          width: 100%;
+        }
+      }
+      .question__select-list li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+      }
+      .question__select-list li:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      .question__textbox {
+        border: 1px solid rgba(223, 223, 223, 0.6);
+        border-radius: 10px;
+        padding: 13px 20px;
+        outline: none !important;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        min-width: 70px;
+        max-width: 150px;
+        width: 100%;
+      }
+      .question__image-wrap {
+        width: 300px;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+      @media (max-width: 767.98px) {
+        .question__image-wrap {
+          width: 100%;
+        }
+      }
+      .question__image-wrap .question__image {
+        width: 100%;
+        height: 100%;
+      }
+      .question__image-wrap .exam__popup-close {
+        display: none;
+      }
+      .question__image-wrap.enlarged {
+        position: fixed;
+        top: 200px;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+        width: 624px;
+        z-index: 1000;
+        margin-bottom: 0;
+        cursor: unset;
+      }
+      @media (max-width: 767.98px) {
+        .question__image-wrap.enlarged {
+          width: 90%;
+        }
+      }
+      .question__image-wrap.enlarged .exam__popup-close {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border: 1px solid #2f2f4d;
+        display: block;
+        z-index: 1001;
+      }
+      .question__buttons {
+        border-top: 1px solid rgba(47, 47, 77, 0.15);
+        padding-top: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+      @media (max-width: 767.98px) {
+        .question__buttons {
+          margin-top: 30px;
+        }
+      }
+      .stats__block {
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        min-width: 406px;
+        padding: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        gap: 30px;
+      }
+      @media (max-width: 767.98px) {
+        .stats__block {
+          min-width: unset;
+          width: 100%;
+        }
+      }
+      .stats__title {
+        font-weight: 700;
+        line-height: 133%;
+        letter-spacing: -0.25px;
+        margin-bottom: 20px;
+      }
+      .stats__slider {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 4px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      .stats__slider-finished {
+        border: 1px solid #3aae81 !important;
+        background: #3aae81;
+        color: #fff;
+      }
+      .stats__slider-skipped {
+        border: 1px solid #e84c94 !important;
+        background: #e84c94;
+        color: #fff;
+      }
+      .stats__slider-current {
+        border: 1px solid #2ed1df !important;
+        background: #2ed1df;
+        color: #fff;
+      }
+      .stats__slider-numbers {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 4px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+      .stats__slider-number,
+      .stats__slider-nav {
+        border-radius: 50%;
+        border: 1px solid #e0e0e0;
+        width: 46px;
+        height: 46px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 146%;
+        cursor: pointer;
+      }
+      .stats__text {
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        margin-bottom: 10px;
+      }
+      .stats__keys {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 5px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(47, 47, 77, 0.15);
+      }
+      .stats__key-current {
+        border: 1px solid #2ed1df;
+        background: #2ed1df;
+        color: #fff;
+        letter-spacing: -0.03px;
+        line-height: 138%;
+        font-weight: 700;
+        font-size: 13px;
+        color: #fff;
+        padding: 7px 16px;
+        border-radius: 100px;
+      }
+      .stats__key-finished {
+        border: 1px solid #3aae81;
+        background: #3aae81;
+        color: #fff;
+        letter-spacing: -0.03px;
+        line-height: 138%;
+        font-weight: 700;
+        font-size: 13px;
+        color: #fff;
+        padding: 7px 16px;
+        border-radius: 100px;
+      }
+      .stats__key-skipped {
+        border: 1px solid #e84c94;
+        background: #e84c94;
+        color: #fff;
+        letter-spacing: -0.03px;
+        line-height: 138%;
+        font-weight: 700;
+        font-size: 13px;
+        color: #fff;
+        padding: 7px 16px;
+        border-radius: 100px;
+      }
+      .stats__finish-button {
+        width: 100%;
+      }
+
+      .result__container {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .result__pdf {
+        padding: 8px 24px;
+      }
+      .result__info {
+        margin-top: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+      @media (max-width: 991.98px) {
+        .result__info {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .result__info {
+          gap: 10px;
+          margin-bottom: 30px;
+        }
+      }
+      .result__left {
+        width: calc(50% - 15px);
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        padding: 30px;
+      }
+      @media (max-width: 991.98px) {
+        .result__left {
+          width: 100%;
+        }
+      }
+      @media (max-width: 479.98px) {
+        .result__left {
+          padding: 20px;
+        }
+      }
+      .result__left-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 4px;
+      }
+      .result__left-item:not(:last-child) {
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(47, 47, 77, 0.15);
+        margin-bottom: 30px;
+      }
+      @media (max-width: 767.98px) {
+        .result__left-item:not(:last-child) {
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .result__left-item {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-align: start;
+          -ms-flex-align: start;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+      .result__left-title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 133%;
+        letter-spacing: -0.25px;
+        width: 140px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 140px;
+        flex: 0 0 140px;
+      }
+      @media (max-width: 767.98px) {
+        .result__left-title {
+          width: unset;
+          -webkit-box-flex: 1;
+          -ms-flex: auto;
+          flex: auto;
+        }
+      }
+      .result__left-text {
+        letter-spacing: -0.25px;
+        line-height: 187%;
+      }
+      .result__left-text .passed {
+        color: #3aae81;
+      }
+      .result__left-text .not-passed {
+        color: #e84c94;
+      }
+      .result__right {
+        width: calc(50% - 15px);
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        padding: 30px;
+      }
+      @media (max-width: 991.98px) {
+        .result__right {
+          width: 100%;
+        }
+      }
+      .result__right-title {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 136%;
+        letter-spacing: -0.4px;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 767.98px) {
+        .result__right-title {
+          font-size: 18px;
+        }
+      }
+      .result__right-text {
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        margin-bottom: 30px;
+      }
+      .result__right-list li:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      .result__right-list li a {
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .result__right-list li a img {
+        width: 24px;
+        height: 24px;
+      }
+      .result__progress {
+        width: 100%;
+        height: 60px;
+        border-radius: 10px;
+        background: rgba(47, 47, 77, 0.05);
+        overflow: hidden;
+        position: relative;
+      }
+      .result__progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .result__progress-bar {
+        height: 100%;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        color: #2f2f4d;
+        letter-spacing: -0.25px;
+        line-height: 187%;
+        gap: 4px;
+      }
+      .result__progress-bar-empty {
+        height: 100%;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        letter-spacing: -0.25px;
+        line-height: 187%;
+        gap: 4px;
+        width: 100% !important;
+        background: transparent !important;
+      }
+      .result__progress-number span {
+        font-weight: 700;
+      }
+      .result__stats {
+        margin-top: 30px;
+        padding-bottom: 30px;
+      }
+      .result__stats-item {
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        padding: 30px;
+      }
+      .result__stats-item:not(:last-child) {
+        margin-bottom: 30px;
+      }
+      @media (max-width: 767.98px) {
+        .result__stats-item:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+      .result__stats-question {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 133%;
+        letter-spacing: -0.25px;
+        margin-bottom: 20px;
+      }
+      .result__stats-question .question__number {
+        color: #2ed1df;
+      }
+      .result__stats-tag {
+        border-radius: 100px;
+        background: rgba(232, 76, 148, 0.05);
+        padding: 7px 16px;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 138%;
+        letter-spacing: -0.03px;
+        color: #e84c94;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      .result__stats-answer {
+        margin-bottom: 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .result__stats-answer-title {
+        line-height: 187%;
+        letter-spacing: -0.25px;
+        font-weight: 700;
+      }
+      .result__stats-you-js {
+        font-weight: 400;
+      }
+      .result__stats-correct-js {
+        font-weight: 400;
+      }
+      .question__box {
+        page-break-inside: avoid;
+      }
+    </style>
   </body>
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the countdown element
+      var countdownElement = document.getElementById("countdown");
+
+      // Get the initial time from the data-time attribute
+      var initialTime =
+        parseInt(
+          document.querySelector(".exam").getAttribute("data-time"),
+          10
+        ) * 60;
+
+      // Set the initial time on the countdown element
+      countdownElement.textContent = formatTime(initialTime);
+
+      // Start the countdown
+      var countdownInterval = setInterval(function () {
+        initialTime--;
+        countdownElement.textContent = formatTime(initialTime);
+
+        // Check if the time has reached 0
+        if (initialTime <= 0) {
+          clearInterval(countdownInterval);
+          // You can add any additional actions when the countdown reaches 0
+          //   overlayElement.style.display = "block";
+          //   examPopup.style.display = "block";
+          showResults();
+        } else {
+          countdownElement.textContent = formatTime(initialTime);
+
+          // Check if the time is about to finish (e.g., at 59 seconds)
+          if (initialTime === 59) {
+            countdownElement.classList.add("warning");
+          }
+        }
+      }, 1000);
+      function showResults() {
+        // Your existing logic for showing the results
+        // This part of the code will be executed when the time reaches 00:00
+        const resultPopupButton = document.querySelector(".result-popup-js");
+        // Trigger the click event on the resultPopupButton
+        resultPopupButton.click();
+      }
+      // Function to format time in MM : SS format
+      function formatTime(seconds) {
+        var mins = Math.floor(seconds / 60);
+        var secs = seconds % 60;
+        return pad(mins) + ":" + pad(secs) + " Mins";
+      }
+
+      // Function to add leading zero if needed
+      function pad(value) {
+        return value < 10 ? "0" + value : value;
+      }
+      //========================================================================================================================================================
+      const questions = document.querySelectorAll(".question__box");
+      const progressElements = document.querySelectorAll(".question__progress");
+
+      let currentQuestionIndex = 0;
+      const statsSliderNumbers = document.querySelector(
+        ".stats__slider-numbers"
+      );
+
+      function showQuestion(index) {
+        questions.forEach((question, i) => {
+          if (i === index) {
+            question.classList.add("active");
+          } else {
+            question.classList.remove("active");
+          }
+        });
+
+        // Remove the stats__slider-current class from the previous active question
+        const prevActiveNumber = statsSliderNumbers.querySelector(
+          ".stats__slider-current"
+        );
+        if (prevActiveNumber) {
+          prevActiveNumber.classList.remove("stats__slider-current");
+        }
+
+        // Add the stats__slider-current class to the current question
+        const currentQuestionNumber = statsSliderNumbers.querySelector(
+          `.stats__slider-number:nth-child(${index + 1})`
+        );
+        if (currentQuestionNumber) {
+          currentQuestionNumber.classList.add("stats__slider-current");
+        }
+
+        // Оновлення відповідного .question__progress
+        progressElements.forEach((progress, i) => {
+          progress.textContent = `Question ${index + 1} of ${questions.length}`;
+        });
+        const currentQuestion = questions[index];
+        const textboxInput =
+          currentQuestion.querySelector(".question__textbox");
+
+        if (textboxInput) {
+          // Set focus to the text box
+          textboxInput.focus();
+        }
+      }
+
+      function nextQuestion() {
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+          showQuestion(currentQuestionIndex);
+          updateSliderNumbersDisplay();
+
+          // Check if the current question is the last one
+          if (currentQuestionIndex === questions.length - 1) {
+            // If it is the last question, hide or disable the "NEXT" button
+            nextButton.style.display = "none"; // or nextButton.disabled = true;
+          }
+        }
+      }
+
+      function prevQuestion() {
+        if (currentQuestionIndex > 0) {
+          currentQuestionIndex--;
+          showQuestion(currentQuestionIndex);
+          updateSliderNumbersDisplay();
+
+          // Check if the "NEXT" button was hidden or disabled
+          if (
+            !nextButton.style.display ||
+            nextButton.style.display === "none"
+          ) {
+            // If so, show or enable it again
+            nextButton.style.display = "block"; // or nextButton.disabled = false;
+          }
+        }
+      }
+
+      const nextButton = document.querySelector(".question__next");
+      const prevButton = document.querySelector(".question__prev");
+
+      nextButton.addEventListener("click", nextQuestion);
+      prevButton.addEventListener("click", prevQuestion);
+
+      const questionImageWraps = document.querySelectorAll(
+        ".question__image-wrap"
+      );
+      const overlay = document.getElementById("overlay");
+      const closeImageBtns = document.querySelectorAll(".close-image-js");
+      const examPopup = document.querySelector(".exam__popup");
+      const finishButton = document.querySelector(".stats__finish-button");
+
+      function closeOverlayAndPopup() {
+        overlay.style.display = "none";
+        examPopup.style.display = "none";
+      }
+
+      questionImageWraps.forEach((questionImageWrap) => {
+        questionImageWrap.addEventListener("click", function () {
+          questionImageWrap.classList.add("enlarged");
+          overlay.style.display = "block";
+        });
+      });
+
+      closeImageBtns.forEach((closeImageBtn) => {
+        closeImageBtn.addEventListener("click", function () {
+          questionImageWraps.forEach((questionImageWrap) => {
+            questionImageWrap.classList.remove("enlarged");
+          });
+          overlay.style.display = "none";
+        });
+      });
+
+      finishButton.addEventListener("click", function () {
+        overlay.style.display = "block";
+        examPopup.style.display = "block";
+      });
+
+      const closePopups = document.querySelectorAll(".close-popup-js");
+
+      closePopups.forEach((closePopup) => {
+        closePopup.addEventListener("click", function () {
+          closeOverlayAndPopup();
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (event.target.classList.contains("close-image-js")) {
+          questionImageWraps.forEach((questionImageWrap) => {
+            questionImageWrap.classList.remove("enlarged");
+          });
+          overlay.style.display = "none";
+        }
+      });
+
+      overlay.addEventListener("click", function (event) {
+        if (
+          !Array.from(questionImageWraps).some((questionImageWrap) =>
+            questionImageWrap.contains(event.target)
+          )
+        ) {
+          questionImageWraps.forEach((questionImageWrap) => {
+            questionImageWrap.classList.remove("enlarged");
+          });
+          closeOverlayAndPopup();
+        }
+      });
+
+      // Функція для закриття оверлею та попапу
+      function closeOverlayAndPopup() {
+        overlay.style.display = "none";
+        examPopup.style.display = "none";
+      }
+      const resultPopupButton = document.querySelector(".result-popup-js");
+      const resultContainer = document.querySelector(".result__container");
+
+      resultPopupButton.addEventListener("click", function () {
+        // Select the result container
+        const resultContainer = document.querySelector(".result__container");
+
+        // Clear previous results
+
+        // Create a common parent element for all result__stats-item elements
+        const resultStats = document.createElement("div");
+        resultStats.classList.add("result__stats");
+
+        // Create a container for the Knowledge Deficiency Report
+        const knowledgeDeficiencyContainer = document.querySelector(
+          ".result__right-list"
+        );
+        knowledgeDeficiencyContainer.innerHTML = "";
+        const uniqueSyllabusNumbers = [];
+        // Iterate over each question
+
+        function compareAnswers(userAnswer, correctAnswer) {
+          const formattedUserAnswer = userAnswer.replace(/\s/g, ""); // Remove spaces
+          const formattedCorrectAnswer = correctAnswer.replace(/\s/g, "");
+
+          return (
+            formattedUserAnswer.toLowerCase() ===
+            formattedCorrectAnswer.toLowerCase()
+          );
+        }
+
+        function compareSelectAnswers(userAnswers, correctAnswers) {
+          // Check if the user has selected the correct options
+          return (
+            userAnswers.length === correctAnswers.length &&
+            userAnswers.every((userAnswer) =>
+              correctAnswers.includes(userAnswer)
+            )
+          );
+        }
+
+        questions.forEach((question, index) => {
+          const questionTitle =
+            question.querySelector(".question__title").innerHTML;
+
+          const hasMinMaxNumbers =
+            question.hasAttribute("data-min-number") &&
+            question.hasAttribute("data-max-number");
+
+          let correctAnswers = [];
+          let correctNumber = 0;
+
+          if (hasMinMaxNumbers) {
+            const minNumber = parseFloat(
+              question.getAttribute("data-min-number")
+            );
+            const maxNumber = parseFloat(
+              question.getAttribute("data-max-number")
+            );
+            correctNumber = parseFloat(question.getAttribute("data-correct-1"));
+
+            for (let number = minNumber; number <= maxNumber; number += 0.01) {
+              correctAnswers.push(number.toFixed(2)); // Adjust precision as needed
+            }
+          } else {
+            for (let i = 1; question.hasAttribute(`data-correct-${i}`); i++) {
+              correctAnswers.push(question.getAttribute(`data-correct-${i}`));
+            }
+          }
+
+          const userAnswerElements = question.querySelectorAll("input:checked");
+          const userAnswers = Array.from(userAnswerElements).map((input) =>
+            input.nextElementSibling.innerText.trim()
+          );
+
+          const selectElements = question.querySelectorAll(".question__select");
+          const userSelectAnswers = Array.from(selectElements).map((select) =>
+            select.value === "" ? "None" : select.value
+          );
+
+          let textboxUserAnswer = "";
+
+          let isCorrect =
+            (userAnswers.length === correctAnswers.length &&
+              correctAnswers.every((correctAnswer) =>
+                userAnswers.some((userAnswer) =>
+                  compareAnswers(userAnswer, correctAnswer)
+                )
+              )) ||
+            compareSelectAnswers(userSelectAnswers, correctAnswers);
+
+          const hasTextbox = question.querySelector(".question__textbox");
+          if (hasTextbox) {
+            textboxUserAnswer = hasTextbox.value.trim().toLowerCase();
+
+            const isNumericAnswer = !isNaN(parseFloat(correctAnswers[0]));
+            const precision = isNumericAnswer ? 0.01 : 1; // Adjust precision as needed
+
+            if (isNumericAnswer) {
+              const correctMin = parseFloat(correctAnswers[0]);
+              const correctMax = parseFloat(
+                correctAnswers[correctAnswers.length - 1]
+              );
+              const userAnswer = parseFloat(textboxUserAnswer);
+
+              isCorrect =
+                isCorrect ||
+                (userAnswer >= correctMin &&
+                  userAnswer <= correctMax + precision);
+            } else {
+              isCorrect =
+                isCorrect ||
+                compareAnswers(textboxUserAnswer, correctAnswers[0]);
+            }
+          }
+
+          let correctAnswerText = "";
+          if (hasMinMaxNumbers) {
+            correctAnswerText = `Approximately ${correctNumber.toFixed(1)}`;
+          } else {
+            correctAnswerText = `${correctAnswers.join(", ")}`;
+          }
+
+          // Create result entry for incorrect answers
+          if (!isCorrect) {
+            const resultStatsItem = document.createElement("div");
+            resultStatsItem.classList.add("result__stats-item");
+
+            resultStatsItem.innerHTML = `
+          <div class="result__stats-question">${questionTitle}</div>
+          <div class="result__stats-tag">Wrong</div>
+          <div class="result__stats-answers">
+            <div class="result__stats-answer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18" stroke="#E84C94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="#E84C94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="result__stats-answer-title">Your Answer: <span class="result__stats-you-js">${
+                userAnswers.join(", ") ||
+                userSelectAnswers.join(", ") ||
+                textboxUserAnswer ||
+                "None"
+              }</span></div>
+            </div>
+            <div class="result__stats-answer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="#25B033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="result__stats-answer-title">Correct Answer: <span class="result__stats-correct-js">${correctAnswerText}</span></div>
+            </div>
+          </div>
+        `;
+
+            // Append the result entry to the common parent element
+            resultStats.appendChild(resultStatsItem);
+
+            // Add syllabus number and link to the Knowledge Deficiency Report
+            // Отримайте значення data-syllabus
+            const syllabusNumber = question.getAttribute("data-syllabus");
+            const syllabusLink = question.getAttribute("data-syllabus-link");
+
+            // Перевірте, чи це унікальне значення
+            if (
+              syllabusNumber &&
+              syllabusLink &&
+              !uniqueSyllabusNumbers.includes(syllabusNumber)
+            ) {
+              // Додаємо унікальне значення до масиву
+              uniqueSyllabusNumbers.push(syllabusNumber);
+
+              // Створюємо елемент і додаємо його до контейнера
+              const deficiencyItem = document.createElement("li");
+              deficiencyItem.innerHTML = `
+        <a target="_blank" href="${syllabusLink}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#2ED1DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 16L16 12L12 8" stroke="#2ED1DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 12H16" stroke="#2ED1DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+          ${syllabusNumber}
+        </a>
+      `;
+              knowledgeDeficiencyContainer.appendChild(deficiencyItem);
+            }
+          }
+        });
+
+        // Get the "Examination" element
+        const resultExaminationElement =
+          document.getElementById("result-examination");
+        // Get the "License" element
+        const resultLicenseElement = document.getElementById("result-license");
+        // Get the "Specialisation" element
+        const resultSpecialisationElement = document.getElementById(
+          "result-specialisation"
+        );
+
+        const examElement = document.querySelector(".exam");
+        const userScore = totalQuestions - resultStats.childElementCount;
+        const passRate = parseInt(examElement.getAttribute("data-pass-rate"));
+        const examTitle = examElement.getAttribute("data-exam-title");
+        const examLicense = examElement.getAttribute("data-exam-licence");
+        const specialisation = examElement.getAttribute("data-specialisation");
+
+        // Set the content of the elements with the obtained values
+        resultExaminationElement.textContent = examTitle;
+        resultLicenseElement.textContent = examLicense;
+        resultSpecialisationElement.textContent = specialisation;
+
+        // Calculate the percentage and determine the background color
+        const percentage = (userScore / totalQuestions) * 100;
+
+        const backgroundColor =
+          userScore > 0 && percentage < passRate
+            ? "#e84c94" // Red for scores greater than 0 but less than the pass rate
+            : "#3aae81"; // Green for scores greater than or equal to the pass rate
+
+        const passStatus = percentage >= passRate ? "Passed" : "Not Passed";
+        const passStatusColor = percentage >= passRate ? "#25B033" : "#E84C94";
+
+        // Add a class based on user's score
+        const resultProgressBarClass =
+          userScore === 0
+            ? "result__progress-bar-empty"
+            : "result__progress-bar";
+
+        // Create and append the progress bar to the result container
+        const resultProgress = document.querySelector(".result__progress");
+        resultProgress.innerHTML = `
+    <span style="width: ${percentage}%; background: ${backgroundColor}; " class="${resultProgressBarClass}">
+    <span class="result__progress-text">
+    Correct answers:
+        <span class="result__progress-number">${userScore} <span>(${percentage.toFixed(
+          0
+        )}%)</span></span>
+    </span>
+
+    </span>
+    `;
+
+        // Update the "Marks" section with pass/fail status
+        const resultMarks = document.getElementById("result-marks");
+        resultMarks.innerHTML = `${percentage.toFixed(
+          0
+        )}, <span class="passed" style="color: ${passStatusColor}">${passStatus}</span>`;
+
+        // Append the common parent element to the result container
+        resultContainer.appendChild(resultStats);
+
+        // Hide exam container, overlay, and exam popup
+        const examContainer = document.querySelector(".exam__container");
+        const overlay = document.getElementById("overlay");
+        const examPopup = document.querySelector(".exam__popup");
+        examContainer.style.display = "none";
+        overlay.style.display = "none";
+        examPopup.style.display = "none";
+        resultContainer.style.display = "block";
+      });
+
+      function calculateElementsPerPage() {
+        return window.innerWidth >= 479.98 ? 5 : 3;
+      }
+
+      // Select the stats__slider-numbers container
+      const totalQuestions = questions.length;
+      let elementsPerPage = calculateElementsPerPage();
+      let firstVisibleElementIndex = 0;
+
+      function updateSliderNumbersDisplay() {
+        const lastVisibleElementIndex = Math.min(
+          firstVisibleElementIndex + elementsPerPage - 1,
+          totalQuestions - 1
+        );
+
+        statsSliderNumbers.innerHTML = "";
+
+        // Calculate the first visible index based on the current question
+        if (
+          currentQuestionIndex <=
+          totalQuestions - Math.ceil(elementsPerPage / 2)
+        ) {
+          firstVisibleElementIndex = Math.max(
+            0,
+            currentQuestionIndex - Math.floor(elementsPerPage / 2)
+          );
+        } else {
+          firstVisibleElementIndex = totalQuestions - elementsPerPage;
+        }
+
+        for (
+          let i = firstVisibleElementIndex;
+          i < firstVisibleElementIndex + elementsPerPage;
+          i++
+        ) {
+          if (i < totalQuestions) {
+            const questionNumber = document.createElement("button");
+            questionNumber.classList.add("stats__slider-number");
+            questionNumber.textContent = i + 1;
+
+            if (isQuestionAnswered(i)) {
+              questionNumber.classList.add("stats__slider-finished");
+            }
+
+            if (i === currentQuestionIndex) {
+              questionNumber.classList.add("stats__slider-current");
+            }
+
+            questionNumber.addEventListener("click", function () {
+              if (i !== currentQuestionIndex) {
+                currentQuestionIndex = i;
+                showQuestion(currentQuestionIndex);
+                updateSliderNumbersDisplay();
+              }
+            });
+
+            statsSliderNumbers.appendChild(questionNumber);
+          }
+        }
+      }
+
+      function isQuestionAnswered(index) {
+        const question = questions[index];
+
+        if (question) {
+          // Перевірка, чи question не є undefined
+          // Перевірте наявність відповідей користувача для різних типів питань
+          const hasRadioAnswer = question.querySelector(
+            "input[type='radio']:checked"
+          );
+
+          const hasCheckboxAnswer = question.querySelector(
+            "input[type='checkbox']:checked"
+          );
+          const hasSelectAnswer = Array.from(
+            question.querySelectorAll(".question__select")
+          ).some((select) => select.value !== "");
+          const hasTextboxAnswer =
+            question.querySelector(".question__textbox") &&
+            question.querySelector(".question__textbox").value.trim() !== "";
+
+          if (hasRadioAnswer) {
+            return hasRadioAnswer;
+          }
+          if (hasCheckboxAnswer) {
+            return hasCheckboxAnswer;
+          }
+          if (hasSelectAnswer) {
+            return hasSelectAnswer;
+          }
+          if (hasTextboxAnswer) {
+            return hasTextboxAnswer;
+          }
+        }
+
+        // Повертаємо false, якщо question === undefined або якщо немає відповіді
+        return false;
+      }
+
+      function generateUniqueIdsAndNames() {
+        questions.forEach((question, index) => {
+          const questionNumber = index + 1;
+          const questionTitle = question.querySelector(".question__title");
+          questionTitle.innerHTML = `<span class="question__number">${questionNumber}.</span> ${questionTitle.textContent}`;
+          // Generate unique id for radio inputs
+          const radioInputs = question.querySelectorAll(".question__radio");
+          radioInputs.forEach((input, i) => {
+            const uniqueId = `radio-${index + 1}-${i + 1}`;
+            input.id = uniqueId;
+            input.name = `radio-${index + 1}`;
+            const label = input.closest("label"); // Find the closest label
+            if (label) {
+              label.setAttribute("for", uniqueId);
+            }
+          });
+
+          // Generate unique id for checkbox inputs
+          const checkboxInputs = question.querySelectorAll(
+            ".question__checkbox"
+          );
+          checkboxInputs.forEach((input, i) => {
+            const uniqueId = `checkbox-${index + 1}-${i + 1}`;
+            input.id = uniqueId;
+            const label = input.closest("label"); // Find the closest label
+            if (label) {
+              label.setAttribute("for", uniqueId);
+            }
+          });
+
+          // Generate unique id for select inputs
+          const selectInputs = question.querySelectorAll(".question__select");
+          selectInputs.forEach((select, i) => {
+            const uniqueId = `select-${index + 1}-${i + 1}`;
+            select.id = uniqueId;
+            select.name = `select-${index + 1}`;
+          });
+
+          // Generate unique id for textbox inputs
+          const textboxInput = question.querySelector(".question__textbox");
+          if (textboxInput) {
+            const uniqueId = `textbox-${index + 1}`;
+            textboxInput.id = uniqueId;
+            textboxInput.name = `textbox-${index + 1}`;
+          }
+        });
+      }
+
+      generateUniqueIdsAndNames();
+
+      const nextSliderButton = document.getElementById("stats__slider-next");
+      const prevSliderButton = document.getElementById("stats__slider-prev");
+
+      nextSliderButton.addEventListener("click", function () {
+        if (currentQuestionIndex + 1 < totalQuestions) {
+          currentQuestionIndex++;
+          showQuestion(currentQuestionIndex);
+          updateSliderNumbersDisplay();
+        }
+      });
+
+      prevSliderButton.addEventListener("click", function () {
+        if (currentQuestionIndex > 0) {
+          currentQuestionIndex--;
+          showQuestion(currentQuestionIndex);
+          updateSliderNumbersDisplay();
+        }
+      });
+
+      // Event listener for window resize to update the display accordingly
+      window.addEventListener("resize", function () {
+        const newElementsPerPage = calculateElementsPerPage();
+
+        if (newElementsPerPage !== elementsPerPage) {
+          elementsPerPage = newElementsPerPage;
+          updateSliderNumbersDisplay();
+        }
+      });
+      // Get the "Date of Exam" element
+      const resultDateElement = document.getElementById("result-date");
+
+      // Get the current date
+      const currentDate = new Date();
+
+      // Format the date as "DD MMMM YYYY"
+      const day = currentDate.getDate();
+      const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const monthIndex = currentDate.getMonth();
+      const year = currentDate.getFullYear();
+
+      const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
+
+      // Set the formatted date to the "Date of Exam" element
+      resultDateElement.textContent = formattedDate;
+      // Initial call to update the number of displayed elements
+      updateSliderNumbersDisplay();
+
+      // Show the first question as current on page load
+      showQuestion(currentQuestionIndex);
+
+      const saveAsPdfButton = document.getElementById("saveAsPdfButton");
+
+      saveAsPdfButton.addEventListener("click", function () {
+        // Select the result container
+        const resultContainer = document.querySelector(".result__container");
+
+        // Customize the PDF options
+        const pdfOptions = {
+          margin: [10, 5, 10, 5],
+
+          filename: "NZAviator Mock Exam Result.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 }, // Increase scale for better image quality
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }, // PDF format and orientation
+          pagebreak: { mode: "avoid-all" },
+          noFooter: true, // Disable the footer
+          noHeader: true, // Disable the header
+          pagebreak: { mode: "avoid-all", before: ".question__box" },
+        };
+
+        resultContainer.style.width = "95%";
+        // Generate the PDF from the result container with customized options
+        html2pdf().set(pdfOptions).from(resultContainer).toPdf().save();
+
+        // html2pdf(resultContainer, pdfOptions);
+      });
+    });
+  </script>
 </html>

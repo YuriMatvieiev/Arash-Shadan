@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:regular,700&display=swap");
-
 $minWidth: 320;
 $mainColor: #2f2f4d;
 $secondary: #2ed1df;
 $pink: #e84c94;
 $green: #3aae81;
 $fontSize: 16px;
-$fontFamily: "Raleway";
 $tablet: 991.98px; // Tablets, some phones in a horizontal position
 $mobile: 767.98px; // phones L
 $mobileSmall: 479.98px; // Phones s
@@ -35,7 +32,6 @@ body {
 }
 body {
   color: $mainColor;
-  font-family: $fontFamily;
   font-size: $fontSize;
   line-height: 120%;
   //text-rendering: optimizeLegibility;
@@ -48,7 +44,6 @@ body {
 input,
 button,
 textarea {
-  font-family: $fontFamily;
   font-size: inherit;
   line-height: inherit;
 }
@@ -84,6 +79,7 @@ h6 {
   display: flex;
   gap: 16px;
   align-items: center;
+  justify-content: center;
   font-weight: 700;
   line-height: 187%;
   letter-spacing: -0.25px;
@@ -122,11 +118,11 @@ h6 {
   &__container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    // padding: 0 20px;
   }
   // .exam__header
   &__header {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -197,6 +193,7 @@ h6 {
   &__content {
     display: flex;
     gap: 30px;
+    align-items: flex-start;
     @media (max-width: $tablet) {
       flex-direction: column;
     }
@@ -307,9 +304,7 @@ h6 {
   }
   &__box {
     display: none;
-    @media (max-width: $mobile) {
-      margin-bottom: 30px;
-    }
+
     &.active {
       display: block;
     }
@@ -337,10 +332,6 @@ h6 {
   }
   // .question__questions
   &__questions {
-    margin-bottom: 50px;
-    @media (max-width: $mobile) {
-      margin-bottom: 30px;
-    }
     label {
       display: flex;
       gap: 15px;
@@ -407,7 +398,7 @@ h6 {
   }
   &__select {
     padding: 13px 20px;
-    outline: none;
+    outline: none !important;
     border-radius: 10px;
     border: 1px solid rgba(223, 223, 223, 0.6);
     line-height: 187%;
@@ -415,12 +406,15 @@ h6 {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 180px;
+    width: 200px;
     color: $mainColor;
     background: transparent
       url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
-      no-repeat 140px center;
+      no-repeat 95% center;
     cursor: pointer;
+    @media (max-width: $mobileSmall) {
+      width: 100%;
+    }
     &-list {
       li {
         display: flex;
@@ -434,21 +428,28 @@ h6 {
     }
   }
   &__textbox {
-    border-bottom: 1px solid rgba(223, 223, 223, 0.6);
-    padding: 0px 8px;
-    outline: none;
+    border: 1px solid rgba(223, 223, 223, 0.6);
+    border-radius: 10px;
+    padding: 13px 20px;
+    outline: none !important;
     box-sizing: border-box;
     min-width: 70px;
     max-width: 150px;
     width: 100%;
   }
-  &__image {
+  &__image-wrap {
     width: 300px;
-    border-radius: 10px;
     margin-bottom: 30px;
     cursor: pointer;
     @media (max-width: $mobile) {
       width: 100%;
+    }
+    .question__image {
+      width: 100%;
+      height: 100%;
+    }
+    .exam__popup-close {
+      display: none;
     }
     &.enlarged {
       position: fixed;
@@ -458,8 +459,18 @@ h6 {
       width: 624px;
       z-index: 1000;
       margin-bottom: 0;
+      cursor: unset;
       @media (max-width: $mobile) {
         width: 90%;
+      }
+      .exam__popup-close {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border: 1px solid $mainColor;
+        display: block;
+        z-index: 1001;
       }
     }
   }
@@ -470,6 +481,10 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 50px;
+    @media (max-width: $mobile) {
+      margin-top: 30px;
+    }
   }
   // .question__prev
   &__prev {
@@ -613,11 +628,11 @@ h6 {
   &__container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    // padding: 0 20px;
   }
   // .result__info
   &__info {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     gap: 30px;
     margin-bottom: 50px;
@@ -669,8 +684,8 @@ h6 {
     font-weight: 700;
     line-height: 133%;
     letter-spacing: -0.25px;
-    width: 125px;
-    flex: 0 0 125px;
+    width: 140px;
+    flex: 0 0 140px;
     @media (max-width: $mobile) {
       width: unset;
       flex: auto;
@@ -803,6 +818,9 @@ h6 {
     line-height: 133%;
     letter-spacing: -0.25px;
     margin-bottom: 20px;
+    .question__number {
+      color: $secondary;
+    }
   }
   // .result__stats-tag
   &__stats-tag {
@@ -824,7 +842,7 @@ h6 {
   &__stats-answer {
     margin-bottom: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
   }
   // .result__stats-you-title

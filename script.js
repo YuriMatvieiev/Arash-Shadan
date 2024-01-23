@@ -23,11 +23,23 @@ document.addEventListener("DOMContentLoaded", function () {
       // You can add any additional actions when the countdown reaches 0
       //   overlayElement.style.display = "block";
       //   examPopup.style.display = "block";
-    } else if (initialTime === 59) {
-      countdownElement.classList.add("warning");
+      showResults();
+    } else {
+      countdownElement.textContent = formatTime(initialTime);
+
+      // Check if the time is about to finish (e.g., at 59 seconds)
+      if (initialTime === 59) {
+        countdownElement.classList.add("warning");
+      }
     }
   }, 1000);
-
+  function showResults() {
+    // Your existing logic for showing the results
+    // This part of the code will be executed when the time reaches 00:00
+    const resultPopupButton = document.querySelector(".result-popup-js");
+    // Trigger the click event on the resultPopupButton
+    resultPopupButton.click();
+  }
   // Function to format time in MM : SS format
   function formatTime(seconds) {
     var mins = Math.floor(seconds / 60);
@@ -75,6 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
     progressElements.forEach((progress, i) => {
       progress.textContent = `Question ${index + 1} of ${questions.length}`;
     });
+    const currentQuestion = questions[index];
+    const textboxInput = currentQuestion.querySelector(".question__textbox");
+
+    if (textboxInput) {
+      // Set focus to the text box
+      textboxInput.focus();
+    }
   }
 
   function nextQuestion() {
@@ -82,6 +101,12 @@ document.addEventListener("DOMContentLoaded", function () {
       currentQuestionIndex++;
       showQuestion(currentQuestionIndex);
       updateSliderNumbersDisplay();
+
+      // Check if the current question is the last one
+      if (currentQuestionIndex === questions.length - 1) {
+        // If it is the last question, hide or disable the "NEXT" button
+        nextButton.style.display = "none"; // or nextButton.disabled = true;
+      }
     }
   }
 
@@ -90,6 +115,12 @@ document.addEventListener("DOMContentLoaded", function () {
       currentQuestionIndex--;
       showQuestion(currentQuestionIndex);
       updateSliderNumbersDisplay();
+
+      // Check if the "NEXT" button was hidden or disabled
+      if (!nextButton.style.display || nextButton.style.display === "none") {
+        // If so, show or enable it again
+        nextButton.style.display = "block"; // or nextButton.disabled = false;
+      }
     }
   }
 
@@ -99,10 +130,31 @@ document.addEventListener("DOMContentLoaded", function () {
   nextButton.addEventListener("click", nextQuestion);
   prevButton.addEventListener("click", prevQuestion);
 
+  const questionImageWrap = document.querySelector(".question__image-wrap");
   const overlay = document.getElementById("overlay");
+  const closeImageBtn = document.querySelector(".close-image-js");
   const examPopup = document.querySelector(".exam__popup");
   const finishButton = document.querySelector(".stats__finish-button");
 
+  // Add click event listener to question__image-wrap
+  questionImageWrap.addEventListener("click", function () {
+    // Add the 'enlarged' class to question__image-wrap
+    questionImageWrap.classList.add("enlarged");
+
+    // Show the overlay
+    overlay.style.display = "block";
+  });
+
+  // Add click event listener to close-image-js
+  if (closeImageBtn) {
+    closeImageBtn.addEventListener("click", function () {
+      // Remove the 'enlarged' class from question__image-wrap
+      questionImageWrap.classList.remove("enlarged");
+
+      // Hide the overlay
+      overlay.style.display = "none";
+    });
+  }
   finishButton.addEventListener("click", function () {
     overlay.style.display = "block";
     examPopup.style.display = "block";
@@ -117,10 +169,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("close-image-js")) {
+      // Remove the 'enlarged' class from question__image-wrap
+      questionImageWrap.classList.remove("enlarged");
+
+      // Hide the overlay
+      overlay.style.display = "none";
+    }
+  });
+
   // Додайте обробник події для оверлею
   overlay.addEventListener("click", function (event) {
-    if (event.target === overlay) {
-      closeOverlayAndPopup();
+    // Check if the click occurred outside of question__image-wrap
+    if (
+      event.target !== questionImageWrap &&
+      !questionImageWrap.contains(event.target)
+    ) {
+      // Remove the 'enlarged' class from question__image-wrap
+      questionImageWrap.classList.remove("enlarged");
+
+      // Hide the overlay
+      overlay.style.display = "none";
     }
   });
 
@@ -160,112 +230,134 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
+    function compareSelectAnswers(userAnswers, correctAnswers) {
+      // Check if the user has selected the correct options
+      return (
+        userAnswers.length === correctAnswers.length &&
+        userAnswers.every((userAnswer) => correctAnswers.includes(userAnswer))
+      );
+    }
+
     questions.forEach((question, index) => {
       // Get question title and correct answers
-      const questionTitle =
-        question.querySelector(".question__title").innerText;
-
+      const questionTitle = question.querySelector(".question__title").innerHTML;
+  
       const correctAnswers = [];
-      if (question.hasAttribute("data-correct")) {
-        correctAnswers.push(question.getAttribute("data-correct"));
+      for (let i = 1; question.hasAttribute(`data-correct-${i}`); i++) {
+          correctAnswers.push(question.getAttribute(`data-correct-${i}`));
       }
-      if (question.hasAttribute("data-correct-2")) {
-        correctAnswers.push(question.getAttribute("data-correct-2"));
-      }
-
+  
       // Get user's answers for checkbox questions
       const userAnswerElements = question.querySelectorAll("input:checked");
       const userAnswers = Array.from(userAnswerElements).map((input) =>
-        input.nextElementSibling.innerText.trim()
+          input.nextElementSibling.innerText.trim()
       );
-
+  
       // Get user's answers for select questions
       const selectElements = question.querySelectorAll(".question__select");
       const userSelectAnswers = Array.from(selectElements).map((select) =>
-        select.value === "" ? "None" : select.value
+          select.value === "" ? "None" : select.value
       );
-
+  
       let isCorrect =
-        (userAnswers.length === correctAnswers.length &&
-          correctAnswers.every((correctAnswer) =>
-            userAnswers.some((userAnswer) =>
-              compareAnswers(userAnswer, correctAnswer)
-            )
-          )) ||
-        (userSelectAnswers.length === 2 &&
-          compareAnswers(userSelectAnswers[0], correctAnswers[0]) &&
-          compareAnswers(userSelectAnswers[1], correctAnswers[1]));
-
-      // Check if the question has a textbox for user input
+          (userAnswers.length === correctAnswers.length &&
+              correctAnswers.every((correctAnswer) =>
+                  userAnswers.some((userAnswer) =>
+                      compareAnswers(userAnswer, correctAnswer)
+                  )
+              )) ||
+          compareSelectAnswers(userSelectAnswers, correctAnswers);
+  
       const hasTextbox = question.querySelector(".question__textbox");
       let textboxUserAnswer = "";
       if (hasTextbox) {
-        textboxUserAnswer = hasTextbox.value.trim().toLowerCase();
-        isCorrect =
-          isCorrect || compareAnswers(textboxUserAnswer, correctAnswers[0]); // Assuming there's only one correct answer for textbox
+          textboxUserAnswer = hasTextbox.value.trim().toLowerCase();
+  
+          const isNumericAnswer = !isNaN(parseFloat(correctAnswers[0]));
+  
+          if (isNumericAnswer) {
+              // Convert user and correct answers to numeric values
+              const correctAnswer = parseFloat(correctAnswers[0]);
+              const userAnswer = parseFloat(textboxUserAnswer);
+  
+              // Check if the user's answer is within the acceptable range of the correct answer
+              isCorrect =
+                  isCorrect ||
+                  (userAnswer >= Math.floor(correctAnswer) &&
+                      userAnswer <= Math.ceil(correctAnswer));
+          } else {
+              // Check if the user's alphanumeric answer matches the correct answer exactly
+              isCorrect =
+                  isCorrect || compareAnswers(textboxUserAnswer, correctAnswers[0]);
+          }
       }
-
+  
       // Create result entry for incorrect answers
       if (!isCorrect) {
-        const resultStatsItem = document.createElement("div");
-        resultStatsItem.classList.add("result__stats-item");
-
-        resultStatsItem.innerHTML = `
-        <div class="result__stats-question">${questionTitle}</div>
-        <div class="result__stats-tag">Wrong</div>
-        <div class="result__stats-answers">
-          <div class="result__stats-answer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M18 6L6 18" stroke="#E84C94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 6L18 18" stroke="#E84C94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="result__stats-answer-title">Your Answer: <span class="result__stats-you-js">${
+          const resultStatsItem = document.createElement("div");
+          resultStatsItem.classList.add("result__stats-item");
+  
+          resultStatsItem.innerHTML = `
+      <div class="result__stats-question">${questionTitle}</div>
+      <div class="result__stats-tag">Wrong</div>
+      <div class="result__stats-answers">
+        <div class="result__stats-answer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18" stroke="#E84C94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 6L18 18" stroke="#E84C94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="result__stats-answer-title">Your Answer: <span class="result__stats-you-js">${
               userAnswers.join(", ") ||
               userSelectAnswers.join(", ") ||
               textboxUserAnswer ||
               "None"
-            }</span></div>
-          </div>
-          <div class="result__stats-answer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M20 6L9 17L4 12" stroke="#25B033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="result__stats-answer-title">Correct Answer: <span class="result__stats-correct-js">${correctAnswers.join(
-              ", "
-            )}</span></div>
-          </div>
+          }</span></div>
         </div>
-      `;
-
-        // Append the result entry to the common parent element
-        resultStats.appendChild(resultStatsItem);
-
-        // Add syllabus number and link to the Knowledge Deficiency Report
-        // Отримайте значення data-syllabus
-        const syllabusNumber = question.getAttribute("data-syllabus");
-        const syllabusLink = question.getAttribute("data-syllabus-link");
-
-        // Перевірте, чи це унікальне значення
-        if (
-          syllabusNumber &&
-          syllabusLink &&
-          !uniqueSyllabusNumbers.includes(syllabusNumber)
-        ) {
-          // Додаємо унікальне значення до масиву
-          uniqueSyllabusNumbers.push(syllabusNumber);
-
-          // Створюємо елемент і додаємо його до контейнера
-          const deficiencyItem = document.createElement("li");
-          deficiencyItem.innerHTML = `
-      <a href="${syllabusLink}">
-        <img src="https://svgshare.com/i/11ks.svg" alt="" />
-        ${syllabusNumber}
-      </a>
+        <div class="result__stats-answer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 6L9 17L4 12" stroke="#25B033" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="result__stats-answer-title">Correct Answer: <span class="result__stats-correct-js">${correctAnswers.join(
+              ", "
+          )}</span></div>
+        </div>
+      </div>
     `;
-          knowledgeDeficiencyContainer.appendChild(deficiencyItem);
-        }
+  
+          // Append the result entry to the common parent element
+          resultStats.appendChild(resultStatsItem);
+  
+          // Add syllabus number and link to the Knowledge Deficiency Report
+          // Отримайте значення data-syllabus
+          const syllabusNumber = question.getAttribute("data-syllabus");
+          const syllabusLink = question.getAttribute("data-syllabus-link");
+  
+          // Перевірте, чи це унікальне значення
+          if (
+              syllabusNumber &&
+              syllabusLink &&
+              !uniqueSyllabusNumbers.includes(syllabusNumber)
+          ) {
+              // Додаємо унікальне значення до масиву
+              uniqueSyllabusNumbers.push(syllabusNumber);
+  
+              // Створюємо елемент і додаємо його до контейнера
+              const deficiencyItem = document.createElement("li");
+              deficiencyItem.innerHTML = `
+    <a href="${syllabusLink}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#2ED1DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 16L16 12L12 8" stroke="#2ED1DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8 12H16" stroke="#2ED1DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+      ${syllabusNumber}
+    </a>
+  `;
+              knowledgeDeficiencyContainer.appendChild(deficiencyItem);
+          }
       }
-    });
+  });
+  
 
     // Get the "Examination" element
     const resultExaminationElement =
@@ -307,15 +399,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create and append the progress bar to the result container
     const resultProgress = document.querySelector(".result__progress");
     resultProgress.innerHTML = `
-    <span style="width: ${percentage}%; background: ${backgroundColor}; " class="${resultProgressBarClass}">
-    <span class="result__progress-text">
-    Correct answers: 
-        <span class="result__progress-number">${userScore} <span>(${percentage.toFixed(
+<span style="width: ${percentage}%; background: ${backgroundColor}; " class="${resultProgressBarClass}">
+<span class="result__progress-text">
+Correct answers: 
+    <span class="result__progress-number">${userScore} <span>(${percentage.toFixed(
       0
     )}%)</span></span>
-    </span>
-        
-    </span>
+</span>
+    
+</span>
 `;
 
     // Update the "Marks" section with pass/fail status
@@ -354,29 +446,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     statsSliderNumbers.innerHTML = "";
 
-    for (let i = firstVisibleElementIndex; i <= lastVisibleElementIndex; i++) {
-      const questionNumber = document.createElement("div");
-      questionNumber.classList.add("stats__slider-number");
-      questionNumber.textContent = i + 1;
+    // Calculate the first visible index based on the current question
+    if (
+      currentQuestionIndex <=
+      totalQuestions - Math.ceil(elementsPerPage / 2)
+    ) {
+      firstVisibleElementIndex = Math.max(
+        0,
+        currentQuestionIndex - Math.floor(elementsPerPage / 2)
+      );
+    } else {
+      firstVisibleElementIndex = totalQuestions - elementsPerPage;
+    }
 
-      // Додайте клас stats__slider-finished, якщо відповідь була дана на питання
-      if (isQuestionAnswered(i)) {
-        questionNumber.classList.add("stats__slider-finished");
-      }
+    for (
+      let i = firstVisibleElementIndex;
+      i < firstVisibleElementIndex + elementsPerPage;
+      i++
+    ) {
+      if (i < totalQuestions) {
+        const questionNumber = document.createElement("button");
+        questionNumber.classList.add("stats__slider-number");
+        questionNumber.textContent = i + 1;
 
-      if (i === currentQuestionIndex) {
-        questionNumber.classList.add("stats__slider-current");
-      }
-
-      questionNumber.addEventListener("click", function () {
-        if (i !== currentQuestionIndex) {
-          currentQuestionIndex = i;
-          showQuestion(currentQuestionIndex);
-          updateSliderNumbersDisplay();
+        if (isQuestionAnswered(i)) {
+          questionNumber.classList.add("stats__slider-finished");
         }
-      });
 
-      statsSliderNumbers.appendChild(questionNumber);
+        if (i === currentQuestionIndex) {
+          questionNumber.classList.add("stats__slider-current");
+        }
+
+        questionNumber.addEventListener("click", function () {
+          if (i !== currentQuestionIndex) {
+            currentQuestionIndex = i;
+            showQuestion(currentQuestionIndex);
+            updateSliderNumbersDisplay();
+          }
+        });
+
+        statsSliderNumbers.appendChild(questionNumber);
+      }
     }
   }
 
@@ -406,14 +516,14 @@ document.addEventListener("DOMContentLoaded", function () {
     questions.forEach((question, index) => {
       const questionNumber = index + 1;
       const questionTitle = question.querySelector(".question__title");
-      questionTitle.textContent = `${questionNumber}. ${questionTitle.textContent}`;
+      questionTitle.innerHTML = `<span class="question__number">${questionNumber}.</span> ${questionTitle.textContent}`;
       // Generate unique id for radio inputs
       const radioInputs = question.querySelectorAll(".question__radio");
       radioInputs.forEach((input, i) => {
         const uniqueId = `radio-${index + 1}-${i + 1}`;
         input.id = uniqueId;
         input.name = `radio-${index + 1}`;
-        const label = input.closest("label"); // Знаходимо найближчий label
+        const label = input.closest("label"); // Find the closest label
         if (label) {
           label.setAttribute("for", uniqueId);
         }
@@ -424,7 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
       checkboxInputs.forEach((input, i) => {
         const uniqueId = `checkbox-${index + 1}-${i + 1}`;
         input.id = uniqueId;
-        const label = input.closest("label"); // Знаходимо найближчий label
+        const label = input.closest("label"); // Find the closest label
         if (label) {
           label.setAttribute("for", uniqueId);
         }
@@ -454,15 +564,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevSliderButton = document.getElementById("stats__slider-prev");
 
   nextSliderButton.addEventListener("click", function () {
-    if (firstVisibleElementIndex + elementsPerPage < totalQuestions) {
-      firstVisibleElementIndex++;
+    if (currentQuestionIndex + 1 < totalQuestions) {
+      currentQuestionIndex++;
+      showQuestion(currentQuestionIndex);
       updateSliderNumbersDisplay();
     }
   });
 
   prevSliderButton.addEventListener("click", function () {
-    if (firstVisibleElementIndex > 0) {
-      firstVisibleElementIndex--;
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      showQuestion(currentQuestionIndex);
       updateSliderNumbersDisplay();
     }
   });
